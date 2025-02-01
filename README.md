@@ -4,7 +4,7 @@ sudoku-valid-arm64
 Two codes, namely `sudoku_valid` and  `sudoku_valid2`.
 
 These programs implement a leet-code challenge: write `is_sudoku_valid`
-in assembly language. Just for kicks, I picked Linux/aarch64; this code
+in assembly language. Just for kicks, I'm using Linux/aarch64; this code
 was written on a raspberry pi 4, but may also compile and run on other
 Linux/aarch64 systems.
 

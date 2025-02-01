@@ -66,7 +66,7 @@ s_invalid_block:
 len_invalid_block = . - s_invalid_block
 
 /*
-    offsets to blocks
+    offsets to 3x3 blocks
 */
 d_block_offsets:
     .word 0, 3, 6

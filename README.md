@@ -1,9 +1,11 @@
 sudoku-valid-arm64
 ==================
 
-This program implements a leet-code challenge: implement `is_sudoku_valid`
+Two codes, namely `sudoku_valid` and  `sudoku_valid2`.
+
+These programs implement a leet-code challenge: write `is_sudoku_valid`
 in assembly language. Just for kicks, I picked Linux/aarch64; this code
-was written on a raspberry pi 4, but just might compile and run on other
+was written on a raspberry pi 4, but may also compile and run on other
 Linux/aarch64 systems.
 
 A sudoku is a puzzle consisting of a 9x9 grid, containing the numbers
@@ -13,7 +15,7 @@ A soduku is valid if the following conditions are met:
 - each column contains only and exactly the numbers 1 to 9.
 - each 3x3 sub-block contains only and exactly the numbers 1 to 9.
 
-This program only checks whether the given sudoku is valid; it is not
+The program only checks whether the given sudoku is valid; it is not
 a sudoku-solver.
 
 ## Implementation
@@ -40,6 +42,10 @@ My first aarch64 code, really. Remember, aarch64 conventions:
 - x19 - x28 non-volatile registers
 - x29 frame pointer
 - x30 link register
+
+The second implementation has a more straightforward style; if there
+is an error, simply bail out with `fatal`. It is a quick way out, but
+the resulting code is much easier to follow.
 
 
 ## Copyright and License

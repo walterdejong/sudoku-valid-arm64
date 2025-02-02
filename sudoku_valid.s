@@ -105,7 +105,7 @@ print_valid:
     mov x1, len_valid
     bl fn_print
 
-    mov x0, #0
+    mov x0, xzr
     bl fn_exit
 
 
@@ -159,7 +159,7 @@ fn_is_sudoku_valid:
     cbnz x0, is_sudoku_valid_nope_invalid_digits
 
     /* check rows */
-    mov x20, #0
+    mov x20, xzr
 is_sudoku_valid_next_row:
     mov x0, x19
     mov x1, x20
@@ -171,7 +171,7 @@ is_sudoku_valid_next_row:
     blt is_sudoku_valid_next_row
 
     /* check columns */
-    mov x20, #0
+    mov x20, xzr
 is_sudoku_valid_next_column:
     mov x0, x19
     mov x1, x20
@@ -183,7 +183,7 @@ is_sudoku_valid_next_column:
     blt is_sudoku_valid_next_column
 
     /* check blocks */
-    mov x20, #0
+    mov x20, xzr
 is_sudoku_valid_next_block:
     mov x0, x19
     mov x1, x20
@@ -196,7 +196,7 @@ is_sudoku_valid_next_block:
 
     /* it is a valid sudoku */
 
-    mov x0, #0
+    mov x0, xzr
 is_sudoku_valid_ret:
     ldp x19, x20, [sp, #16]
     ldp x29, x30, [sp], #32
@@ -253,7 +253,7 @@ fn_check_digits:
     stp x19, x20, [sp, #16]
 
     mov x10, x0
-    mov x20, #0
+    mov x20, xzr
     
 check_digits_loop:
     ldrb w0, [x19], #1
@@ -264,7 +264,7 @@ check_digits_loop:
     cmp x20, DIM * DIM
     blt check_digits_loop
 
-    mov x0, #0
+    mov x0, xzr
 check_digits_ret:
     ldp x19, x20, [sp, #16]
     ldp x29, x30, [sp], #32
@@ -288,7 +288,7 @@ fn_is_digit:
     cmp x0, '9'
     bhi is_digit_nope
 
-    mov x0, #0
+    mov x0, xzr
 is_digit_ret:
     ret
 
@@ -316,8 +316,8 @@ fn_is_row_valid:
     add x2, x2, x0
 
     mov x1, #1                  /* x1 is used as "immediate" shift value */
-    mov x4, #0                  /* x4 will hold 9 set bits, one for each digit */
-    mov x9, #0                  /* x9 is loop counter */
+    mov x4, xzr                 /* x4 will hold 9 set bits, one for each digit */
+    mov x9, xzr                 /* x9 is loop counter */
 is_row_valid_loop:
     ldrb w0, [x2], #1
     sub w0, w0, '0'
@@ -331,7 +331,7 @@ is_row_valid_loop:
     cmp w4, 0b01111111110       /* 9 bits must be set, bit zero remains unset */
     bne is_row_valid_nope
 
-    mov x0, #0
+    mov x0, xzr
 is_row_valid_ret:
     ret
 
@@ -355,8 +355,8 @@ fn_is_column_valid:
     add x2, x0, x1
 
     mov x1, #1                  /* x1 is used as "immediate" shift value */
-    mov x4, #0                  /* x4 will hold 9 set bits, one for each digit */
-    mov x9, #0                  /* x9 is loop counter */
+    mov x4, xzr                 /* x4 will hold 9 set bits, one for each digit */
+    mov x9, xzr                 /* x9 is loop counter */
 is_column_valid_loop:
     ldrb w0, [x2], #9
     sub w0, w0, '0'
@@ -370,7 +370,7 @@ is_column_valid_loop:
     cmp w4, 0b01111111110       /* 9 bits must be set, bit zero remains unset */
     bne is_column_valid_nope
 
-    mov x0, #0
+    mov x0, xzr
 is_column_valid_ret:
     ret
 
@@ -417,7 +417,7 @@ fn_is_block_valid:
         check [x2], [x2+1], [x2+2]
     */
     mov x1, #1                  /* x1 is used as "immediate" shift value */
-    mov x4, #0                  /* x4 will hold 9 set bits, one for each digit */
+    mov x4, xzr                 /* x4 will hold 9 set bits, one for each digit */
 
     ldrb w0, [x2], #1
     sub w0, w0, '0'
@@ -471,7 +471,7 @@ fn_is_block_valid:
     cmp w4, 0b01111111110       /* 9 bits must be set, bit zero remains unset */
     bne is_block_valid_nope
 
-    mov x0, #0
+    mov x0, xzr
 is_block_valid_ret:
     ret
 

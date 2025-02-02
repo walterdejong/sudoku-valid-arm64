@@ -104,7 +104,7 @@ _start:
     mov x1, len_valid
     bl fn_print
 
-    mov x0, #0
+    mov x0, xzr
     b fn_exit
 
 /*
@@ -177,7 +177,7 @@ load_sudoku:
     ldr x2, =sudoku_raw
 
     mov x6, #1000               /* x6 is a loop guard */
-    mov x7, #0                  /* x7 is digit counter */
+    mov x7, xzr                 /* x7 is digit counter */
 
 spellcheck_loop:
     ldrb w0, [x1], #1
@@ -227,7 +227,7 @@ check_rows:
     mov x9, #9                  /* we will check 9 rows */
 check_row:
     mov x4, #1                  /* x4 is used for shifting (1 << byte) */
-    mov x6, #0                  /* x6 holds bits for all digits */
+    mov x6, xzr                 /* x6 holds bits for all digits */
 
     ldr x0, [x1], #8            /* load 8 bytes at once */
     mov x7, #8
@@ -276,7 +276,7 @@ check_columns:
     mov x9, #9                  /* we will check 9 columns */
 check_column:
     mov x4, #1                  /* x4 is used for shifting (1 << byte) */
-    mov x6, #0                  /* x6 holds bits for all digits */
+    mov x6, xzr                 /* x6 holds bits for all digits */
 
     mov x7, #9                  /* check 9 digits */
 check_column_digit:
@@ -348,7 +348,7 @@ check_block:
     mov x1, x0
 
     mov x4, #1                  /* x4 is used for shifting (1 << byte) */
-    mov x6, #0                  /* x6 holds bits for all digits */
+    mov x6, xzr                 /* x6 holds bits for all digits */
 
     /*
         in an unrolled fashion, we will do 3 digits,

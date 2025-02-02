@@ -74,8 +74,8 @@ d_block_offsets:
     we store sudoku digits as bytes
     the complete sudoku has 9 rows
     Additionally,
-    we layout nine columns horizontally in lines of 16 bytes each
-    we layout nine blocks horizontally in lines of 16 bytes each
+    we layout nine columns horizontally in lines of 9 bytes each
+    we layout nine blocks horizontally in lines of 9 bytes each
 */
 .equ DATA_LINE, 9
 .equ NINE_LINES, (9 * DATA_LINE)

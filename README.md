@@ -72,6 +72,8 @@ Next, it transposes the columns into a horizontal layout, and the 3x3 blocks
 are also stored in a horizontal layout. Checking the puzzle can now be done
 by one and the same subroutine, that simply checks "data lines" of 9 bytes.
 
+In the 3rd program the Linux-specific code was moved to `linux.s`,
+which may aid in porting to other platforms.
 
 ## Copyright and License
 Copyright (c) 2025 Walter de Jong <walter@heiho.net>

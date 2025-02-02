@@ -12,6 +12,7 @@ all: sudoku_valid sudoku_valid2
 sudoku_valid: sudoku_valid.o
 	ld -o $@ $^
 
+sudoku_valid2.o: sudoku_valid2.s sudoku.txt
 sudoku_valid2: sudoku_valid2.o
 	ld -o $@ $^
 

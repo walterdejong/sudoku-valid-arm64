@@ -33,17 +33,8 @@
     There may be spaces and newlines in this block
 */
 sudoku:
-    .ascii "7 4 5  3 2 6  9 1 8"
-    .ascii "1 6 2  5 8 9  4 7 3"
-    .ascii "8 9 3  7 1 4  6 5 2"
-
-    .ascii "6 2 7  9 5 3  1 8 4"
-    .ascii "9 1 8  6 4 2  7 3 5"
-    .ascii "5 3 4  1 7 8  2 6 9"
-
-    .ascii "3 8 9  2 6 1  5 4 7"
-    .ascii "4 5 1  8 9 7  3 2 6"
-    .ascii "2 7 6  4 3 5  8 9 1"
+    .incbin "sudoku.txt"
+.align 4
 
 s_valid:
     .ascii "the sudoku is valid!\n"
